@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Baby 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at top, #ff7eb3, #ff4d6d, #b5179e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* Main Card */
+.card {
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 40px rgba(255,255,255,0.4);
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Main Text */
+h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.2rem;
+    color: #fff;
+    text-shadow: 0 0 20px rgba(255,255,255,0.9);
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+#typewriter {
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #fff;
+    min-height: 60px;
+}
+
+/* Button */
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ffccd5, #fff);
+    color: #b5179e;
+    font-size: 1rem;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255,255,255,0.8);
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+/* Love Letter */
+.letter {
+    display: none;
+    margin-top: 20px;
+    font-size: 1rem;
+    color: white;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    color: rgba(255,255,255,0.8);
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(100vh) scale(1);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-10vh) scale(1.5);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>I lovee uh 💕<br>mera bachaa</h1>
+    <div id="typewriter"></div>
+
+    <button onclick="showLetter()">Tap here my love 💌</button>
+
+    <div class="letter" id="letter">
+        You are my comfort, my madness, my peace,  
+        my forever favourite person 🌸  
+        No matter what, this heart is **only yours** 💖
+    </div>
+</div>
+
+<!-- Background Music -->
+<audio autoplay loop>
+    <source src="https://www.chosic.com/wp-content/uploads/2021/06/Loving-You.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* Typewriter Effect */
+const text = "Every heartbeat of mine whispers your name… 💞";
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 70);
+    }
+}
+typeWriter();
+
+/* Show Letter */
+function showLetter() {
+    document.getElementById("letter").style.display = "block";
+}
+
+/* Floating Hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 15 + "px";
+    heart.style.animationDuration = Math.random() * 3 + 4 + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+
+setInterval(createHeart, 250);
+</script>
+
+</body>
+</html>
